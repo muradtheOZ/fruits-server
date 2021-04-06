@@ -18,12 +18,7 @@ client.connect(err => {
   const collection = client.db(process.env.DB_NAME).collection("fruits");
   const userCollection = client.db(process.env.DB_NAME).collection("ordered");
 
-  // add fakedata to databasse
-// app.post('/add',(req,res)=>{ 
-//     const products = req.body
-//    collection.insertMany(products)
-//     .then(res=>console.log(res))
-// })
+
 
 app.get('/products',(req,res)=>{
  collection.find({})
