@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 require('dotenv').config()
-const objId = require("mongodb").ObjectID
+const ObjectId = require("mongodb").ObjectID
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://fruityUser:YeGjQlQ4FWCOw95l@cluster0.bejzy.mongodb.net/fruitydb?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -43,7 +43,7 @@ app.get('/orderedProducts',(req,res)=>{
        // console.log('one',document);
        res.send(document)
    })
- })
+  })
 
 //  insert product in database
 app.post('/addProduct',(req, res) =>{
@@ -52,11 +52,6 @@ collection.insertOne(newProduct)
 
 })
 
-app.post('/addUser',(req, res) =>{
-  const newProduct  = req.body;
-  user.insertOne(newProduct)
-  
-  })
 
 
 
@@ -74,6 +69,8 @@ collection.deleteOne({_id:objId(req.params.id)})
   console.log('two',res);
 })
 })
+
+
 
 
 // app.post('/addToCart',(req, res) =>{
@@ -97,8 +94,8 @@ userCollection.find({email:req.params.email})
 
 })
 })
-app.get('/checkOut/:_id',(req,res)=>{
-// console.log(req.params._id); yes we got id from frontend
+app.get('/fruits/:_id',(req,res)=>{
+console.log("yes we got id from frontend",req.params._id); 
 collection.find({_id: ObjectId(req.params._id)})
 .toArray((err,document)=>{
  console.log(err,document);
