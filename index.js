@@ -111,6 +111,4 @@ collection.find({_id: ObjectId(req.params._id)})
 
 
 
-app.listen(port||process.env.PORT, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(process.env.PORT||port)
