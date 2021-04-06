@@ -3,7 +3,7 @@ const cors = require('cors')
 require('dotenv').config()
 const ObjectId = require("mongodb").ObjectID
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://fruityUser:YeGjQlQ4FWCOw95l@cluster0.bejzy.mongodb.net/fruitydb?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.bejzy.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const app = express()
 const port = 5000;
@@ -16,8 +16,8 @@ app.get('/', (req, res) => {
 
 
 client.connect(err => {
-  const collection = client.db("fruitydb").collection("fruits");
-  const userCollection = client.db("fruitydb").collection("ordered");
+  const collection = client.db(process.env.DB_NAME).collection("fruits");
+  const userCollection = client.db(process.env.DB_NAME).collection("ordered");
 
   // add fakedata to databasse
 // app.post('/add',(req,res)=>{ 
