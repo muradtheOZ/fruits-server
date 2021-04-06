@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-
 client.connect(err => {
   const collection = client.db(process.env.DB_NAME).collection("fruits");
   const userCollection = client.db(process.env.DB_NAME).collection("ordered");
