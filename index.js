@@ -58,7 +58,7 @@ app.post('/addProductUser',(req, res) =>{
 // delete a product
 app.delete('/delete/:_id',(req,res)=>{
 
-collection.deleteOne({_id:ObjectId(req.params.id)})
+collection.deleteOne({_id:ObjectId(req.params._id)})
 .then(res=>{
   console.log('two',res);
 })
