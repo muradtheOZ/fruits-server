@@ -98,6 +98,16 @@ collection.find({_id: ObjectId(req.params._id)})
 })
 })
 
+app.get('/shipment/:_id',(req,res)=>{
+  console.log("yes we got id from frontend",req.params._id); 
+  collection.find({_id: ObjectId(req.params._id)})
+  .toArray((err,document)=>{
+   console.log(err,document);
+   res.send(document)
+  
+  })
+  })
+
 
   
 });
