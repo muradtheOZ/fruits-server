@@ -56,7 +56,7 @@ app.post('/addProductUser',(req, res) =>{
   })
 
 // delete a product
-app.delete('/delete/:id',(req,res)=>{
+app.delete('/delete/:_id',(req,res)=>{
 
 collection.deleteOne({_id:objId(req.params.id)})
 .then(res=>{
